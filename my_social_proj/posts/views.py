@@ -28,7 +28,7 @@ class UserPosts(generic.ListView):
     def get_queryset(self):
         """If the user exists, fetch all posts related to that user"""
         try:
-            self.post.user = User.objects.prefetch_related('posts').get(username__iexact=self.kwargs.get('username'))
+            self.post_user = User.objects.prefetch_related('posts').get(username__iexact=self.kwargs.get('username'))
         except:
             User.DoesNotExist
             raise Http404

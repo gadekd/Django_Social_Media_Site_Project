@@ -8,9 +8,9 @@ from django.urls import reverse
 from django.views import generic
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
-from django.db import IntegityError
+from django.db import IntegrityError
 
-from gropus.models import Group, GroupMember
+from groups.models import Group, GroupMember
 
 from . import models
 
@@ -20,12 +20,12 @@ class CreateGroup(LoginRequiredMixin, generic.CreateView):
     model = Group
     
 
-class SingleGroup(generic.DeleteView):
+class SingleGroup(generic.DetailView):
     model = Group
     
 
 class ListGroups(generic.ListView):
-    models = Group
+    model = Group
     
     
 class JoinGroup(LoginRequiredMixin, generic.RedirectView):
@@ -41,10 +41,12 @@ class JoinGroup(LoginRequiredMixin, generic.RedirectView):
             # Try to create a group member with the credentials the same as current user
             GroupMember.objects.create(user=self.request.user, group=group)
             
-        except IntegityError:
+        except IntegrityError:
             messages.warning(self.request, 'Warning! Already a member!')
         else:
             messages.success(self.request, 'You are now a member!')
+            
+        return super().get(request, *args, **kwargs) 
             
             
 class LeaveGroup(LoginRequiredMixin, generic.RedirectView):

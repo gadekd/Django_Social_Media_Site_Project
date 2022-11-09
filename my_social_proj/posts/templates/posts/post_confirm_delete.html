@@ -11,7 +11,7 @@
     <form method="POST">
         {% csrf_token %}
         <input type="submit" value="Confirm" class="btn btn-danger">
-        <a href="{% url 'posts:single' username=user.username pk=object.pk %}" class="btn btn-simple">Cancel</a>
+        <a href="{% url 'posts:single' username=user.username pk=object.pk %}" class="btn btn-info">Cancel</a>
     </form>
 
 {% endblock %}

@@ -3,12 +3,14 @@
     <h3>{{ post.message_html|safe }}</h3>
     
     <div class="media-body">
-        <strong>{{ post.user.username }}</strong>
+        {% comment %} <strong>{{ post.user.username }}</strong> {% endcomment %}
         <h5 class="media-heading">
-            <span class="username"><a href="{% url 'posts:for_user' username='post.user.username' %}"></a></span>
+            <span class="username"><a href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }}</a></span>
             <time class="time">
-                <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}"></a>
+                <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{ post.created_at }}</a>
             </time>
+            <span class="what-group">posted in 
+                <a href="{% url 'groups:single' slug=post.group.slug %}">{{ post.group.name }}</a></span>
         </h5>
 
         <div class="media-footer">
