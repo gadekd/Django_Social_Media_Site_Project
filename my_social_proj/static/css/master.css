@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+    color:white;
+}
+
+.brand, .description, .punchline {
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 1em;
+}
+
+
+#first-title {
+    animation: fadein 5000ms;
+    -moz-animation: fadein 5000ms; /* Firefox */
+    -webkit-animation: fadein 5000ms; /* Safari and Chrome */
+    -o-animation: fadein 5000ms; /* Opera */
+}
+
+#second-title {
+    animation: fadein 5000ms;
+    animation-delay: 3s;
+    -moz-animation: fadein 5000ms; /* Firefox */
+    -moz-animation-delay: 3s;
+    -webkit-animation: fadein 5000ms; /* Safari and Chrome */
+    -webkit-animation-delay: 3s;
+    -o-animation: fadein 5000ms; /* Opera */
+
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#third-title {
+    animation: fadein 5000ms;
+    animation-delay: 6s;
+    -moz-animation: fadein 5000ms; /* Firefox */
+    -moz-animation-delay: 6s;
+    -webkit-animation: fadein 5000ms; /* Safari and Chrome */
+    -webkit-animation-delay: 6s;
+    -o-animation: fadein 5000ms; /* Opera */
+    
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
