@@ -10,6 +10,10 @@ body {
     margin-bottom: 1em;
 }
 
+.jumbotron {
+    background-color: rgb(42, 41, 41);
+}
+
 
 #first-title {
     animation: fadein 5000ms;
